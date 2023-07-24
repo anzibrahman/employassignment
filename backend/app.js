@@ -1,12 +1,13 @@
-const express=require("express");
-const morgan=require("morgan");
-const cors=require('cors');
+const express= require ('express');
 const app= new express();
-require('dotenv').config();
-app.use(morgan('dev'));
+
+const cors=require('cors');
 app.use(cors());
 
+require('dotenv').config();
+const morgan=require("morgan");
 
+app.use(morgan('dev'));
 const mongoose=require('mongoose'); 
 const url= process.env.url;
 
@@ -18,15 +19,14 @@ mongoose.connect(url)
     console.log('error in connecting Atles');
 })
 
-
-
-const userapi=require('./routes/employRoute')
+const userapi=require('./routes/userRoutes')
 app.use('/api',userapi);
 
-const admnapi=require('./routes/adminRoute')
+const admnapi=require('./routes/adminRoutes')
 app.use('/api',admnapi)
 
 const PORT=process.env.PORT;
 app.listen(PORT,()=>{
-    console.log(`server running on port ${PORT}`)
+    console.log(`SERVER IS LISTENING IN THE PORT  ${PORT}`)
 })
+

@@ -3,5 +3,5 @@ const adminSchema=mongoose.Schema({
     username:String,
     password:String
 })
-const adminModel=mongoose.model("admins",adminSchema);
-module.exports=adminModel;
+const admModel=mongoose.model("admins",adminSchema);
+module.exports=admModel;
